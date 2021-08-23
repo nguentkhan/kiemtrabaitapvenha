@@ -1,52 +1,49 @@
 <html>
 <head>
-  <title>Firebase Login</title>
-  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <title>Thanh Toán </title>
+   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <div id="login_div" class="main-div">
-    <h3>Firebase Web login Example</h3>
-    <input type="email" placeholder="Email..." id="email_field" />
-    <input type="password" placeholder="Password..." id="password_field" />
-
-    <button onclick="login()">Login to Account</button>
-  </div>
-
-  <div id="user_div" class="loggedin-div">
-    <h3>Welcome User</h3>
-    <p id="user_para">Welcome to Firebase web login Example. You're currently logged in.</p>
-    <button onclick="logout()">Logout</button>
-  </div>
-
-
-
-
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
-
-<script>
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  var firebaseConfig = {
-    apiKey: "AIzaSyDT0gwZxnfU1-RQCMJgMDlkcUn8SnBAXRo",
-    authDomain: "loginweb-dc6df.firebaseapp.com",
-    projectId: "loginweb-dc6df",
-    storageBucket: "loginweb-dc6df.appspot.com",
-    messagingSenderId: "546609138137",
-    appId: "1:546609138137:web:a5ca3c782bb37fab8571c8",
-    measurementId: "G-ZY8GFMSWS7"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
-</script>
-  <script src="index.js"></script>
+  <div style="margin: 0 auto; width: 500px;">
+	<h3 style="margin-bottom: 20px;"><span class="label label-primary">Nạp thẻ cào trực tuyến</span></h3>
+	<form action="index.php" method="post" id="fnapthe" name="fnapthe">
+		<input  type="hidden" name="fnapthe" value="ok"/>
+		<table class="table table-condensed table-bordered">
+			<tbody>                        
+				<tr>
+					<td>Loại thẻ</td>
+					<td>
+						<select name="card_type_id" style="width: 390px;border: 1px solid #ccc;height: 30px;">
+							<option value="1">Viettel</option>
+							<option value="2">Mobiphone</option>
+							<option value="3">Vinaphone</option>
+							<option value="4">Gate</option>
+							<option value="6">Vietnammobile</option>
+							<option value="7">Megacard</option>
+							<option value="8">OnCash</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Mã thẻ</td>
+					<td><input type="text" value="" name="pin" style="width: 390px;border: 1px solid #ccc;height: 30px;"/></td>
+				</tr>
+				<tr>
+					<td>Seri</td>
+					<td><input type="text" value="" name="seri" style="width: 390px;border: 1px solid #ccc;height: 30px;"/></td>
+				</tr>
+				
+			</tbody>
+		</table>
+		<center>
+			<input class="btn btn-primary" type="submit" value="Nạp thẻ"/> 
+			<div id="loading_napthe" style="display: none; float: center"> &nbsp;Xin mời chờ...</div><br>
+			<div class="label label-success" id="msg_success_napthe"></div><br>
+			<div class="label label-danger" id="msg_err_napthe"><?php echo $status; ?></div><br>
+		</center>
+	</form>
+</div>
 
 </body>
 </html>
